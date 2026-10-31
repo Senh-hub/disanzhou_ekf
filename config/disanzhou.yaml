@@ -1,0 +1,40 @@
+%YAML:1.0
+video: "data/shipin/shipin.avi"
+model: "model/armor_v8.onnx"
+imu: "data/imu/imu.txt"
+camera: "config/xiangji_shipin.yaml"
+output: "result/week3"
+# 未确认：默认第n帧使用第n行时间戳作为图像时间。
+# 若取得真正图像时间，改为 timestamps_file，文件每行一个秒时间戳。
+time_mode: "frame_rows_assumed"
+image_timestamps: "data/imu/image_timestamps.txt"
+offset_s: 0.009
+# 仅当时间对应、四元数方向和外参经确认后设为1；当前结果为假设版本。
+assumptions_confirmed: 0
+# 默认 q 为 IMU->world；若实际相反则设1。
+quaternion_inverse: 0
+# 假设 IMU: x前 y左 z上；相机: x右 y下 z前。
+R_imu_camera: !!opencv-matrix
+  rows: 3
+  cols: 3
+  dt: d
+  data: [0.,0.,1., -1.,0.,0., 0.,-1.,0.]
+t_imu_camera: !!opencv-matrix
+  rows: 3
+  cols: 1
+  dt: d
+  data: [0.,0.,0.]
+# 只估计一个四板目标；空字符串从首个可靠检测选择并锁定数字。
+target_number: ""
+target_color: 1
+small_width_m: 0.135
+large_width_m: 0.225
+height_m: 0.055
+# 板的外法向仰角；没有实测信息，默认竖直板，不宣称已标定。
+plate_tilt_deg: 0.
+pixel_sigma: 1.5
+max_reproj_px: 5.
+q_acc: 0.2
+q_alpha: 2.
+nis_gate: 18.47
+lost_timeout_s: 0.6

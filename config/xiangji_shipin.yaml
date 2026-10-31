@@ -1,0 +1,15 @@
+%YAML:1.0
+tupian_kuan: 1440
+tupian_gao: 1080
+xiangji_name: week3_camera
+neican_juzhen: !!opencv-matrix
+  rows: 3
+  cols: 3
+  dt: d
+  data: [2362.2795952460974, 0., 679.17513921636282, 0., 2336.1916035376717, 529.06858905837635, 0., 0., 1.]
+jibian_canshu: !!opencv-matrix
+  rows: 1
+  cols: 5
+  dt: d
+  data: [-0.098561592108101559, 0.11173066531932681, -0.0038352945867108721, -0.0020421443354436304, 0.]
+chongtouying_wucha: 0.1448
